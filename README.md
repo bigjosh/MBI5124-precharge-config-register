@@ -27,6 +27,7 @@ Luckily, NovaCLT knows about this chip an exposes a way to set this register. Ma
 Here are the files for my setup (in this repo)...
 
 MBI 32x64 Works Low Precharge.rcfgx
+
 Custom MBI5124 32x32 S8 G2 Low Precharge.module
 
 # Complications
@@ -36,7 +37,7 @@ In my case, some of the LEDs had been damaged from the reverse current while thi
 In this image L1 is the damaged LED that leaks reverse current ROW0 is selected, ROW1 is unslected, and OUT0 is OFF...
 ![image](https://github.com/bigjosh/MBI5124-precharge-config-register/assets/5520281/0900cdee-3187-40a1-8d61-42f2348c546b)
 
-To mitigate this problem, you can try finding a pre-charge voltage that is a comprimise- low enough to avoid good LEDs from going into reverse breakdown but high enough to reduce the backwards leakage current enough that it does not visible light good LEDs. 
+To mitigate this problem, you can try finding a pre-charge voltage that is a comprimise- low enough to avoid good LEDs from going into reverse breakdown but high enough to reduce the backwards leakage current enough that it does not visible light good LEDs. But if it was me, I'd want to replce those damaged LEDs since they are likely going to age badly.
 
 # Handly Tool
 

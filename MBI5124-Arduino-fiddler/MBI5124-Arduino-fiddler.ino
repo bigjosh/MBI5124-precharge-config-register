@@ -131,11 +131,17 @@ void scanPrechargeValues() {
 
     setConfigRegisters( r );
 
-    unsigned v = analogRead( PRECHARGE_TAP_PIN );
+    unsigned a = analogRead( PRECHARGE_TAP_PIN );
+
+    // Convert to voltage based on Arduino VREF of 5V
+    float v = ( a * 5.0 ) / 1024;
 
     Serial.print( r );
     Serial.print( ",");
+    Serial.print( a );
+    Serial.print( ",");
     Serial.print( v );
+    
     Serial.println();
 
     r++;
@@ -177,7 +183,8 @@ void setup() {
 
   Serial.println("[$] Set precharge register to 0x0000 (lowest voltage available)");    
   Serial.println("[%] Set precharge register to recommended blue voltage");    
-  
+  Serial.println("[?] Scan all precharge register settings and measure output voltage");    
+    
 }
 
 void processKey( char inChar ) {
@@ -264,8 +271,14 @@ for( auto p : pins ) {
       
       Serial.println("All LEDs OFF.");    
       return;
+
+
+    case '?':
+      Serial.println("Scanning pre-charge values...");    
+      scanPrechargeValues();
+      return;
       
-      
+     
   }        
   
   Serial.print("Unknown key:");    

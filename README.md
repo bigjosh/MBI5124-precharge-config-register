@@ -32,7 +32,11 @@ Custom MBI5124 32x32 S8 G2 Low Precharge.module
 
 # Complications
 
-In my case, some of the LEDs had been damaged from the reverse current while this problem was happening. These LEDs now permentently have a greatly reduced reverse breakdown voltage and so leak a steady current in the reverse direction when the pre-charge voltage was dropped. Current can now flow from the active row, though a good LED, through an OFF column connection, and then leak through the damaged LED to ground through an inactive row.
+In my case, some of the LEDs had been damaged from the reverse current while this problem was happening. These LEDs now permentently have a greatly reduced reverse breakdown voltage and so now continously leak a steady current in the reverse direction whenever not lit. Here is the current path from the precharger on column C0 (OFF), through the damged LED, and though through R1 to ground on unselected row R1...
+
+![image](https://github.com/bigjosh/MBI5124-precharge-config-register/assets/5520281/2760d024-7ace-43a1-8dd6-dc17b34ab095)
+
+When the pre-charge voltage is dropped, current can now flow from the active row, though a good LED, through an OFF column connection, and then leak through the damaged LED to ground through an inactive row.
 
 In this image L1 is the damaged LED that leaks reverse current ROW0 is selected, ROW1 is unslected, and OUT0 is OFF...
 ![image](https://github.com/bigjosh/MBI5124-precharge-config-register/assets/5520281/0900cdee-3187-40a1-8d61-42f2348c546b)

@@ -41,15 +41,15 @@ When the pre-charge voltage is dropped, current can now flow from the active row
 In this image L1 is the damaged LED that leaks reverse current ROW0 is selected, ROW1 is unslected, and OUT0 is OFF...
 ![image](https://github.com/bigjosh/MBI5124-precharge-config-register/assets/5520281/0900cdee-3187-40a1-8d61-42f2348c546b)
 
-To mitigate this problem, you can try finding a pre-charge voltage that is a comprimise- low enough to avoid good LEDs from going into reverse breakdown but high enough to reduce the backwards leakage current enough that it does not visible light good LEDs. But if it was me, I'd want to replce those damaged LEDs since they are likely going to age badly.
+Do note that reverse current is flowing throughthe damaged LED all the time, regardless of the prechanrge voltage. Decreasing the precharge voltage just allows that current to now also flow forward through a non-damaged LED. 
+
+To mitigate this problem, you can try finding a pre-charge voltage that is a comprimise- low enough to avoid good LEDs from going into reverse breakdown but high enough to reduce the backwards leakage current enough that it does not visible light good LEDs. But if it was me, I'd want to replace those damaged LEDs since they are for now on always going to run with a continous reverse current which is likely to make them age badly.
 
 # Handly Tool
 
 Here is a handy little tool that runs on an Arduino that lets you easily play around with indivial signals and quickly test very specific conditions out. I hope you like it.
 
 [MBI5124-Arduino-fiddler](MBI5124-Arduino-fiddler)
-
-
 
 
  

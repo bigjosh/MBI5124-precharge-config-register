@@ -82,6 +82,9 @@ void send16bitsToAllChips( unsigned d ) {
 // From datasheet page 12
 #define BLUE_PRECHARGE_REG_VALUE 0b1110110101101011
 
+// Emperically determined, see "../reg-value-scan.md"
+#define LOW_PRECHARGE_REG_VALUE 0x0019
+
 // Set the internal precharge config registers. This involves clocking out the 16 bit values and then
 // toggling the `clk` line 4 times while `lat` is high as per datasheet page 12.
 
@@ -181,7 +184,7 @@ void setup() {
   Serial.println("[)] All LEDs alternating");  
   
 
-  Serial.println("[$] Set precharge register to 0x0000 (lowest voltage available)");    
+  Serial.println("[$] Set precharge register to lowest voltage available");    
   Serial.println("[%] Set precharge register to recommended blue voltage");    
   Serial.println("[?] Scan all precharge register settings and measure output voltage");    
     
@@ -238,8 +241,8 @@ for( auto p : pins ) {
 
 
     case '$':
-      setConfigRegisters( 0x0000 );
-      Serial.println("Precharge register set to 0x0000");    
+      setConfigRegisters( LOW_PRECHARGE_REG_VALUE );
+      Serial.println("Precharge register set to low");    
       return;
       
     case '%':

@@ -2,7 +2,8 @@
 
 Custom 32x32 LED panels with reported problem that occasionally a block of 8 LEDs would get stuck in a state where one was dark and the other 7 were dimmly lit.
 
-![image](https://github.com/bigjosh/MBI5124-precharge-config-register/assets/5520281/76422ef1-c4b5-493b-9db3-92d6fcad9c8f)
+![2023-07-06 17 41 54](https://github.com/bigjosh/MBI5124-precharge-config-register/assets/5520281/0670be01-623b-4856-bd9e-5f4203aedf2b)
+
 
 Problem turned out to be that with the default pre-charge voltage, the LEDs were being reverse biased at higher than thier breakdown voltage when OFF. Eventually one of the LEDs (the one with the lowest breakdown voltage likely due to process variaions) would go into breakdown and start conducting backwards. The reverse current flows from the OUT pin, though the broken down LED, and then forward though the other LEDs in the column down to ground though the delselected row transistors...
 
